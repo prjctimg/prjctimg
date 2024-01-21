@@ -1,5 +1,7 @@
-<h1 align="center">Hey! I'm Dean Tarisai,</h1>
-<h3 align="center">Software developer and FOSS contributor from Crowhill, Zimbabwe</h3>
+<img src='https://github.com/prjctimg/prjctimg/blob/main/20240103_130634-1.jpg'></img>
+
+<h4 align="center">Hey! I'm Dean Tarisai,</h4>
+<h5 align="center">Software developer and FOSS contributor from Crowhill, Zimbabwe</h5>
 
 <p align="left"> <a href="https://twitter.com/deantarisai" target="blank"><img src="https://img.shields.io/twitter/follow/deantarisai?logo=twitter&style=for-the-badge" alt="deantarisai" /></a> </p>
 
