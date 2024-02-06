@@ -2,7 +2,7 @@
 <h4 align="center">Hey! I'm Dean Tarisai,</h4>
 <h5 align="center">Software developer and FOSS contributor from Crowhill, Zimbabwe</h5>
 
-- 🧑‍🎨 Doing awesome stuff with color 🎨 🖌️   [@huetiful-js](https://github.com/prjctimg/huetiful) .
+- 🧑‍🎨 Doing awesome stuff with color 🎨 🖌️   [@huetiful-js](https://github.com/prjctimg/huetiful) . Also looking for those who wish to get started in open source!
 
 - 🌱 Transitioning to backend development with **Go and PowerShell**
 
