@@ -3,14 +3,15 @@
 </div>
 
 
-<h4 align="center">Hey there, my name's Dean Tarisai 👋</h4>
+<h4 align="center">Hey there, my name's Dean Tarisai 👨‍💻</h4>
 
-Software developer & open source software (FOSS) contributor. 
+Software developer & open source software (FOSS) contributor from Crowhill, Zimbabwe. 
 
-#### Current project 🔬
+#### Current project(s) 🔬
 
-- [A color manipulation library written in Typescript](https://github.com/prjctimg/huetiful)
-- [React library for interaction and state UI cues]() (coming soon)
+- [`A color manipulation library written in Typescript`](https://github.com/prjctimg/huetiful)
+- 
+- [`⚛️React library for interaction and state UI cues`]() (coming soon)
 
 #### Interests include:
 
@@ -20,7 +21,7 @@ Software developer & open source software (FOSS) contributor.
 - Data visualisation 📊
 
 
-I'm a writer at [GhostTogether](https://ghosttogether.com/@iamdeeper) 
+I'm a writer at [GhostTogether👻](https://ghosttogether.com/@iamdeeper) 
 
 ##### Connect with me on:
 - [Twitter 🐦 ](https://twitter.com/deantarisai)
