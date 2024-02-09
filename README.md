@@ -10,7 +10,6 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 #### Current project(s) 🔬
 
 - [`A color manipulation library written in Typescript`](https://github.com/prjctimg/huetiful)
-- 
 - [`⚛️React library for interaction and state UI cues`]() (coming soon)
 
 #### Interests include:
