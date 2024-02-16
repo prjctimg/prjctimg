@@ -20,6 +20,7 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 
 - [`A color manipulation library written in Typescript`](https://github.com/prjctimg/huetiful)
 - [`⚛️React library for interaction and state UI cues`]() (coming soon)
+- [`Material Design Color Tool Clone`](coming soon)
 
 #### Interests include:
 
@@ -38,5 +39,6 @@ I'm a writer at [GhostTogether👻](https://ghosttogether.com/@iamdeeper)
 
 > Tell me a lie and I'll make it `true`,
 > But remember, a web of lies entangles it's weaver.
-> <br>
+> 
+>
 > ###### ~ iseeheaven 🌌
