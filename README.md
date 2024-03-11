@@ -18,11 +18,10 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 
 #### Current project(s) 🔬
 
-- [`A color manipulation library written in Typescript`](https://github.com/prjctimg/huetiful)
-- [`⚛️React library for interaction and state UI cues`]() (coming soon)
-- [`Material Design Color Tool Clone`]() (coming soon)
+- [`A color manipulation library written in Typescript`](https://github.com/xml-wizard/huetiful)
+- [`A web tool for creating design resources and a knowledge base for creative coding.`](https://github.com/xml-wizard/algo-art)
 
-#### Interests include:
+#### Interests 🧠 include:
 
 - Color science 🧪
 - Algorithmic art 🎨
