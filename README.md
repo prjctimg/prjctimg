@@ -21,6 +21,8 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 - [`A color manipulation library written in Typescript`](https://github.com/xml-wizard/huetiful)
 - [`A web tool for creating design resources and a knowledge base for creative coding.`](https://github.com/xml-wizard/algo-art)
 
+You can find more open source projects [here](https://github.com/xml-wizard)
+
 #### Interests 🧠 include:
 
 - Color science 🧪
@@ -29,7 +31,7 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 - Data visualisation 📊
 
 
-I'm a writer at [GhostTogether👻](https://ghosttogether.com/@iamdeeper) 
+I usually hang out on [GhostTogether👻](https://ghosttogether.com/@iamdeeper) 
 
 ##### Connect with me on:
 - [Twitter 🐦 ](https://twitter.com/deantarisai)
