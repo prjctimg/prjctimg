@@ -1,0 +1,29 @@
+name: Advice workflow
+on:
+  push:
+  schedule: # Run workflow automatically
+    - cron: '0 * * * *' # Runs every hour, on the hour
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  update-readme-with-quote:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - name: pull script to get quote
+        uses: ashutoshkrris/random-advice-workflow@main
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "ashutoshkrris"
+          git config --global user.email "contact@gmail.com"
+          git add -A
+          git commit -m "New Advice added"
+          git push
