@@ -14,5 +14,5 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
           repository: ${{ github.prjctimg }}
-          isReadmeUpdate: true
+          isReadmeUpdate: false
           safeUserList: 'Liu-Yong-HK,Huniko-Team'
