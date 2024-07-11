@@ -1,20 +1,17 @@
-name: Github-Auto-Follow-Unfollow-View-User-List
+name: Unfollow those bastards
 
 on:
- push:
-  branches: main
-  
- workflow_dispatch:
-permissions:
-  contents: read
+  schedule:
+    - cron: '0 2 * * 0'  # Runs on Sunday at 2AM
+
 jobs:
-  auto-update:
+  run-script:
     runs-on: ubuntu-latest
     steps:
-      - name: Github-Auto-Follow-Unfollow-View-User-List
-        uses: Huniko519/Github-Auto-Follow-Unfollow-View-User-List@main
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.GH_PAT }}
-          repository: ${{ github.prjctimg }}
-          isReadmeUpdate: true
-          safeUserList: 'Liu-Yong-HK,Huniko-Team'
+          node-version: 16  # You can change this to your desired Node.js version
+      - run: npm install if-follow-package  # Install any required dependencies for your JS file
+      - run: node jobs/unfollow.cjs  # Replace "your_script.js" with your actual script name
