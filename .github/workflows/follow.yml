@@ -2,7 +2,7 @@ name: Unfollow those bastards
 
 on:
   schedule:
-    - cron: '0 2 * * 0'  # Runs on Sunday at 2AM
+    - cron: '0 18 * * 0'  # Runs on Sunday at 2AM
 
 jobs:
   run-script:
@@ -14,4 +14,4 @@ jobs:
         with:
           node-version: 16  # You can change this to your desired Node.js version
       - run: npm install if-follow-package  # Install any required dependencies for your JS file
-      - run: node jobs/unfollow.cjs  # Replace "your_script.js" with your actual script name
+      - run: node .github/tasks/unfollow.cjs  # Replace "your_script.js" with your actual script name
