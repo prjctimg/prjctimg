@@ -2,7 +2,7 @@ name: Unfollow those bastards
 
 on:
   schedule:
-    - cron: '0 18 * * 0'  # Runs on Sunday at 2AM
+    - cron: '5 18 * * 0'  # Runs on Sunday at 2AM
 
 jobs:
   run-script:
