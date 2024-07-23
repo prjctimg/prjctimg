@@ -13,35 +13,15 @@
   <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
 </div>
 
-
-<h4 align="center">Hey there, my name's Dean Tarisai 👨‍💻</h4>
-
-Software developer & open source software (FOSS) contributor from Crowhill, Zimbabwe. 
-
-#### Current project(s) 🔬
-
-- [`A color manipulation library written in Typescript`](https://github.com/xml-wizard/huetiful)
-- [`A web tool for creating design resources and a knowledge base for creative coding.`](https://github.com/xml-wizard/algo-art)
-
-You can find more open source projects [here](https://github.com/xml-wizard)
+Software developer & open source software (FOSS) contributor from Crowhill, Zimbabwe.
 
 #### Interests 🧠 include:
 
-- Color science 🧪
+- Color theory 🧪
 - Algorithmic art 🎨
-- Robotics and IoT :robot: 
-- Data visualisation 📊
+- Technical writing 🖋️ 
+- DevOps 🤖
+- A bit of shell scripting
 
-
-I usually hang out on [GhostTogether👻](https://ghosttogether.com/@iamdeeper) 
-
-##### Connect with me on:
-- [Twitter 🐦 ](https://twitter.com/deantarisai)
-- [Telegram 📬](https://t.me/deantarisai)
-
-
-> Tell me a lie and I'll make it `true`,
-> But remember, a web of lies entangles it's weaver.
-> 
->
-> ###### ~ iseeheaven 🌌
+> I don't believe in reinventing the wheel, but I find comfort in implementing my own solutions whenever necessary.
+> ~ 🌃
