@@ -23,5 +23,6 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 - DevOps 🤖
 - A bit of shell scripting
 
-> I don't believe in reinventing the wheel, but I find comfort in implementing my own solutions whenever necessary.
+> I don't believe in reinventing the wheel nor indulging in complexity.
+> 
 > ~ 🌃
