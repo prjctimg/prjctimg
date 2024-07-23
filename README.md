@@ -17,11 +17,14 @@ Software developer & open source software (FOSS) contributor from Crowhill, Zimb
 
 #### Interests 🧠 include:
 
-- Color theory 🧪
+- Bots 🤖
 - Algorithmic art 🎨
 - Technical writing 🖋️ 
-- DevOps 🤖
-- A bit of shell scripting
+- Shell scripting 📜
+
+
+And a lot of other things I didn't care to mention....
+
 
 > I don't believe in reinventing the wheel nor indulging in complexity.
 > 
