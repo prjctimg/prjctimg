@@ -26,6 +26,8 @@ Open sorcerer from Crowhill, Zimbabwe.
 And a lot of other things I didn't care to mention....
 
 
-> I don't believe in reinventing the wheel nor indulging in complexity.
+> [!Warning]
+>
+>I don't believe in reinventing the wheel nor indulging in complexity.
 > 
 > ~ 🌃
