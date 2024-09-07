@@ -15,6 +15,13 @@
 
 Open sorcerer from Crowhill, Zimbabwe.
 
+### Currently working on
+
+- [huetiful-js](https://github.com/prjctimg/huetiful) • JavaScript utility library for simple 🧮, fast ⏱️ and accessible ♿ color manipulation.
+- A personalized bot for automating my GitHub interactions (repo will be public soon)
+
+
+
 #### Interests 🧠 include:
 
 - Bots 🤖
