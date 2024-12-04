@@ -1,1 +1,1 @@
-# [🖕🏿](https://deantarisai.me)
+# [ディーン・タリサイ](https://deantarisai.me)
