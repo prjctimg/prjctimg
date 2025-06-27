@@ -1,1 +1,1 @@
-# [ディーン・タリサイ](https://prjctimg@netlify.app)
+# [ディーン・タリサイ](https://prjctimg.netlify.app)
