@@ -2,4 +2,4 @@
 
 > If it can't be done out of love, don't bother at all.
 >
-> • *~ ディーン・タリサイ*
+> • _ディーン・タリサイ_
