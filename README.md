@@ -10,3 +10,6 @@
 >
 > That, is the meaning of life
 >
+> Enjoy the beauty while you can. 
+> 
+>
