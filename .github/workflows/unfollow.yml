@@ -1,0 +1,63 @@
+name: Unfollow Non-Followers
+
+on:
+  schedule:
+    # Runs every 3 days at 8:00 AM UTC
+    - cron: "0 8 */3 * *"
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  unfollow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run unfollow script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+        run: |
+          python << 'EOF'
+          import requests, os
+
+          token = os.getenv("GITHUB_TOKEN")
+          username = os.getenv("GITHUB_USERNAME")
+          headers = {"Authorization": f"token {token}"}
+
+          # Get followers
+          followers = set()
+          page = 1
+          while True:
+              r = requests.get(f"https://api.github.com/users/{username}/followers?page={page}", headers=headers)
+              data = r.json()
+              if not data: break
+              followers.update([u["login"] for u in data])
+              page += 1
+
+          # Get following
+          following = set()
+          page = 1
+          while True:
+              r = requests.get(f"https://api.github.com/users/{username}/following?page={page}", headers=headers)
+              data = r.json()
+              if not data: break
+              following.update([u["login"] for u in data])
+              page += 1
+
+          # Unfollow users not following back
+          non_followers = following - followers
+          for user in non_followers:
+              print(f"Unfollowing {user}...")
+              requests.delete(f"https://api.github.com/user/following/{user}", headers=headers)
+          EOF
