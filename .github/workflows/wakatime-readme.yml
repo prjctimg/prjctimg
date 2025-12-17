@@ -18,7 +18,7 @@ jobs:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }} # required
           ### content
           SHOW_TITLE: true # optional
-          SECTION_NAME: waka # optional
+          SECTION_NAME: Uptime⏱️ # optional
           BLOCKS: -> # optional
           TIME_RANGE: all_time # optional
           LANG_COUNT: 10 # optional
