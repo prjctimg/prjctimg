@@ -1,4 +1,4 @@
-> [!error]
+> [!caution]
 >
 > There's no way out
 >
