@@ -1,6 +1,6 @@
 # 🌌
 
-Amateur yet somehow jaded programmer from Crowhill,ZW.
+
 
 > When not sharing [half baked prose](https://prjctimg.me/garden/),[what I'm hacking on](https:prjctimg.me/devlogs/) or [ random musings](https://prjctimg.me/writing), I enjoy [capturing dawns & their sunsets](https://flickr.com/photos/prjctimg)   (amongst other things).
 > 
