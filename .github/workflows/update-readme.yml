@@ -36,7 +36,6 @@ jobs:
           echo "title=$title" >> $GITHUB_OUTPUT
           echo "date=$date" >> $GITHUB_OUTPUT
           echo "url=$garden_url" >> $GITHUB_OUTPUT
-          echo "content=$content" >> $GITHUB_OUTPUT
           
           echo "Latest published garden post: $title ($date) - $garden_url"
           
@@ -45,13 +44,10 @@ jobs:
           TITLE="${{ steps.latest-post.outputs.title }}"
           DATE="${{ steps.latest-post.outputs.date }}"
           URL="${{ steps.latest-post.outputs.url }}"
-          CONTENT="${{ steps.latest-post.outputs.content }}"
           
-          # Create garden post section with emojis
+          # Create garden post section with emojis (title only, no content)
           echo "> [!IMPORTANT]" > garden_section.txt
           echo "> 🌬🎏 [$TITLE]($URL) - $DATE" >> garden_section.txt
-          echo ">" >> garden_section.txt
-          echo "> $CONTENT" >> garden_section.txt
           echo "" >> garden_section.txt
           
           # Update README by replacing or adding section
