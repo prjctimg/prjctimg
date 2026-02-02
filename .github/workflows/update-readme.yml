@@ -27,114 +27,54 @@ jobs:
           # Find the latest published garden post (excluding scheduled posts with future due dates)
           echo "Starting garden post analysis..."
           
-          # Create temp directory for analysis
-          mkdir -p /tmp/garden_analysis
-          cd /tmp/garden_analysis
+          # Try to fetch garden posts via API as fallback since clone may fail
+          # For now, use known published posts data that we manually maintain
+          # This avoids the git clone issues in GitHub Actions
           
-          # Try to clone the repository
-          if git clone --depth 1 https://github.com/prjctimg/gwtw.git gwtw_repo 2>/dev/null; then
-            echo "Successfully cloned gwtw repository"
+          # List of known published garden posts (updated manually when new posts are published)
+          declare -a published_posts=(
+            "2025-01.md|Maybe it isn't|Dec 24, 2025|Maybe the value of life was never meant to be quantified."
+            "2025-02.md|Motivated to be disciplined|Dec 01, 2025|Mastery takes years of persistence. But how can you be persistent if you're not motivated to be disciplined ?"
+          )
+          
+          latest_date=0
+          latest_title=""
+          latest_content=""
+          latest_filename=""
+          
+          # Process each published post
+          for post_info in "${published_posts[@]}"; do
+            IFS='|' read -r filename title content <<< "$post_info"
             
-            # Find all garden posts with proper handling
-            find gwtw_repo/data/blog/garden -name "*.md" > garden_files_list.txt
+            # Parse the date
+            post_epoch=$(date -d "$(echo $title | grep -o '[A-Za-z]* [0-9]*, [0-9]*')" +%s 2>/dev/null || echo 0)
             
-            latest_post=""
-            latest_date=0
-            latest_title=""
-            latest_content=""
-            
-            while IFS= read -r file; do
-              # Skip if not a garden post
-              if ! grep -q "^kind: garden" "$file"; then
-                continue
-              fi
-              
-              # Extract frontmatter info safely
-              title=$(grep "^title:" "$file" | sed 's/title: //; s/"//g' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || echo "")
-              date_str=$(grep "^date:" "$file" | sed 's/date: //; s/"//g' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || echo "")
-              due_str=$(grep "^due:" "$file" | sed 's/due: //; s/"//g' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || echo "")
-              
-              echo "Processing: $file - Title: $title - Date: $date_str - Due: $due_str"
-              
-              # Check if this is a published post (no due date or due date is in past)
-              current_date=$(date +%s)
-              if [ -n "$due_str" ]; then
-                # Try to parse due date
-                due_epoch=$(date -d "$due_str" +%s 2>/dev/null || echo 0)
-                echo "Due epoch: $due_epoch, Current: $current_date"
-                
-                # Skip if due date is in the future
-                if [ "$due_epoch" -gt "$current_date" ]; then
-                  echo "Skipping scheduled post: $title (due: $due_str)"
-                  continue
-                fi
-              fi
-              
-              # Convert post date to epoch for comparison
-              post_epoch=$(date -d "$date_str" +%s 2>/dev/null || echo 0)
-              echo "Post epoch: $post_epoch"
-              
-              # Update if this is more recent
-              if [ "$post_epoch" -gt "$latest_date" ]; then
-                latest_date=$post_epoch
-                latest_title="$title"
-                latest_post="$file"
-                # Extract first non-empty line after frontmatter as content
-                latest_content=$(awk '/^---$/{flag=1;next} /^---$/ && flag{exit} flag && NF{print; exit}' "$file" | head -1)
-                echo "New latest: $latest_title ($latest_date)"
-              fi
-            done < garden_files_list.txt
-            
-            # If we found a post, extract filename and generate URL
-            if [ -n "$latest_post" ]; then
-              filename=$(basename "$latest_post" .md)
-              
-              if [[ "$filename" =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
-                garden_url="https://prjctimg.me/garden/${filename}"
-              else
-                year=$(echo "$filename" | cut -d'-' -f1)
-                garden_url="https://prjctimg.me/garden/$year/$filename"
-              fi
-              
-              # Format date for display
-              display_date=$(date -d "@$latest_date" "+%b %d, %Y")
-              
-              echo "title=$latest_title" >> $GITHUB_OUTPUT
-              echo "date=$display_date" >> $GITHUB_OUTPUT
-              echo "url=$garden_url" >> $GITHUB_OUTPUT
-              echo "content=$latest_content" >> $GITHUB_OUTPUT
-              
-              echo "Found latest published garden post: $latest_title ($display_date) - $garden_url"
-            else
-              echo "No published garden posts found, using fallback"
-              # Fallback to known published posts
-              title="Maybe it isn't"
-              date="Dec 24, 2025"
-              filename="2025-01"
-              content="Maybe the value of life was never meant to be quantified."
-              garden_url="https://prjctimg.me/garden/${filename}"
-              
-              echo "title=$title" >> $GITHUB_OUTPUT
-              echo "date=$date" >> $GITHUB_OUTPUT
-              echo "url=$garden_url" >> $GITHUB_OUTPUT
-              echo "content=$content" >> $GITHUB_OUTPUT
+            # Update if this is more recent
+            if [ "$post_epoch" -gt "$latest_date" ]; then
+              latest_date=$post_epoch
+              latest_title="$title"
+              latest_content="$content"
+              latest_filename="$filename"
             fi
-            
+          done
+          
+          # Generate the URL based on filename pattern
+          if [[ "$latest_filename" =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
+            garden_url="https://prjctimg.me/garden/${latest_filename}"
           else
-            echo "Failed to clone repository, using fallback data"
-            
-            # Fallback to known published posts (excluding scheduled)
-            title="Maybe it isn't"
-            date="Dec 24, 2025"
-            filename="2025-01"
-            content="Maybe the value of life was never meant to be quantified."
-            garden_url="https://prjctimg.me/garden/${filename}"
-            
-            echo "title=$title" >> $GITHUB_OUTPUT
-            echo "date=$date" >> $GITHUB_OUTPUT
-            echo "url=$garden_url" >> $GITHUB_OUTPUT
-            echo "content=$content" >> $GITHUB_OUTPUT
+            year=$(echo "$latest_filename" | cut -d'-' -f1)
+            garden_url="https://prjctimg.me/garden/$year/$latest_filename"
           fi
+          
+          # Format date for display
+          display_date=$(date -d "@$latest_date" "+%b %d, %Y")
+          
+          echo "title=$latest_title" >> $GITHUB_OUTPUT
+          echo "date=$display_date" >> $GITHUB_OUTPUT
+          echo "url=$garden_url" >> $GITHUB_OUTPUT
+          echo "content=$latest_content" >> $GITHUB_OUTPUT
+          
+          echo "Latest published garden post: $latest_title ($display_date) - $garden_url"
                 
                 # Skip if due date is in the future
                 if [ $due_epoch -gt $current_date ]; then
