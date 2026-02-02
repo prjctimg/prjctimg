@@ -1,0 +1,102 @@
+name: Update README with Latest Garden Post
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/update-readme.yml'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Clone gwtw repository
+        run: git clone https://github.com/prjctimg/gwtw.git temp_gwtw
+          
+      - name: Find latest garden post
+        id: latest-post
+        run: |
+          latest_file=$(find temp_gwtw/data/blog/garden -name "*.md" -type f -exec grep -l "^kind: garden" {} \; | xargs ls -lt | head -1 | awk '{print $NF}')
+          
+          if [ -z "$latest_file" ]; then
+            echo "No garden post found"
+            exit 1
+          fi
+          
+          title=$(grep "^title:" "$latest_file" | sed 's/title: //; s/"//g')
+          date=$(grep "^date:" "$latest_file" | sed 's/date: //; s/"//g')
+          filename=$(basename "$latest_file" .md)
+          
+          if [[ $filename =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
+            garden_url="https://prjctimg.me/garden/${filename}"
+          else
+            year=$(echo $filename | cut -d'-' -f1)
+            garden_url="https://prjctimg.me/garden/$year/$filename"
+          fi
+          
+          echo "title=$title" >> $GITHUB_OUTPUT
+          echo "date=$date" >> $GITHUB_OUTPUT
+          echo "url=$garden_url" >> $GITHUB_OUTPUT
+          
+          echo "Latest garden post: $title ($date)"
+          
+      - name: Update README
+        run: |
+          TITLE="${{ steps.latest-post.outputs.title }}"
+          DATE="${{ steps.latest-post.outputs.date }}"
+          URL="${{ steps.latest-post.outputs.url }}"
+          
+          echo "> \[!IMPORTANT\]" > garden_section.txt
+          echo "> **Latest Garden Post:** [$TITLE]($URL) - $DATE" >> garden_section.txt
+          
+          if grep -q '\[!IMPORTANT\]' README.md; then
+            awk '
+              BEGIN { skip=0 }
+              /> \[!IMPORTANT\]/ { 
+                while ((getline line < "garden_section.txt") > 0) print line
+                close("garden_section.txt")
+                skip=1
+                next
+              }
+              skip && /^[^>]/ { 
+                skip=0
+              }
+              !skip { print }
+            ' README.md > README_new.md && mv README_new.md README.md
+          else
+            awk '
+              NR==1 { print }
+              NR==2 { 
+                print ""
+                while ((getline line < "garden_section.txt") > 0) print line
+                close("garden_section.txt")
+                print ""
+              }
+              NR>2 { print }
+            ' README.md > README_new.md && mv README_new.md README.md
+          fi
+          
+          echo "README updated with latest garden post"
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update README with latest garden post - $(date +'%Y-%m-%d %H:%M:%S')"
+            git push
+          fi
+          
+      - name: Cleanup
+        run: rm -rf temp_gwtw garden_section.txt
