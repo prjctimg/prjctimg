@@ -19,7 +19,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Clone gwtw repository
-        run: git clone https://github.com/prjctimg/gwtw.git temp_gwtw
+        run: |
+          git config --global credential.helper ''
+          git clone --depth 1 https://github.com/prjctimg/gwtw.git temp_gwtw
           
       - name: Find latest garden post
         id: latest-post
