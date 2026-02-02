@@ -3,10 +3,6 @@
 > [!IMPORTANT]
 > 🌬🎏 [Maybe it isn't](https://prjctimg.me/garden/2025-01) - Dec 24, 2025
 >
-> Maybe the value of life was never meant to be quantified.
-
-> 🌬🎏 [Maybe it isn't](https://prjctimg.me/garden/2025-01) - Dec 24, 2025
->
 > Maybe it isn't
 
 
