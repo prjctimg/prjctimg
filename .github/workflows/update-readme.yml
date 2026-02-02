@@ -18,23 +18,38 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Clone gwtw repository
-        run: |
-          git config --global credential.helper ''
-          git clone --depth 1 https://github.com/prjctimg/gwtw.git temp_gwtw
-          
-      - name: Find latest garden post
+      - name: Get latest garden post via GitHub API
         id: latest-post
         run: |
-          latest_file=$(find temp_gwtw/data/blog/garden -name "*.md" -type f -exec grep -l "^kind: garden" {} \; | xargs ls -lt | head -1 | awk '{print $NF}')
+          # Get the latest commit that touched garden files
+          latest_commit=$(curl -s "https://api.github.com/repos/prjctimg/gwtw/commits?path=data/blog/garden&per_page=1" | jq -r '.[0].sha')
           
-          if [ -z "$latest_file" ]; then
-            echo "No garden post found"
+          if [ "$latest_commit" = "null" ]; then
+            echo "No garden commits found"
             exit 1
           fi
           
-          title=$(grep "^title:" "$latest_file" | sed 's/title: //; s/"//g')
-          date=$(grep "^date:" "$latest_file" | sed 's/date: //; s/"//g')
+          # Get the tree for that commit to find changed files
+          tree_url="https://api.github.com/repos/prjctimg/gwtw/git/trees/$latest_commit?recursive=1"
+          garden_files=$(curl -s "$tree_url" | jq -r '.tree[] | select(.path | test("data/blog/garden/.*\\.md$")) | .path')
+          
+          if [ -z "$garden_files" ]; then
+            echo "No garden files found"
+            exit 1
+          fi
+          
+          # Get the first (most recent) garden file
+          latest_file=$(echo "$garden_files" | head -1)
+          
+          # Fetch the file content
+          file_url="https://raw.githubusercontent.com/prjctimg/gwtw/main/$latest_file"
+          content=$(curl -s "$file_url")
+          
+          # Extract title and date from content
+          title=$(echo "$content" | grep "^title:" | sed 's/title: //; s/"//g' | xargs)
+          date=$(echo "$content" | grep "^date:" | sed 's/date: //; s/"//g' | xargs)
+          
+          # Extract filename for URL
           filename=$(basename "$latest_file" .md)
           
           if [[ $filename =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
