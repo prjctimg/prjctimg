@@ -79,8 +79,8 @@ jobs:
           
       - name: Commit changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "xml-wizard@outlook.com"
+          git config --local user.name "iseeheaven"
           git add README.md
           if git diff --staged --quiet; then
             echo "No changes to commit"
