@@ -3,19 +3,7 @@
 > [!IMPORTANT]
 > 🌬🎏 [Maybe it isn't](https://prjctimg.me/garden/2025-01) - Dec 24, 2025
 >
-> Maybe the value of life was never meant to be quantified.
-
-> 🌬🎏 [Maybe it isn't](https://prjctimg.me/garden/2025-01) - Dec 24, 2025
->
-> Maybe the value of life was never meant to be quantified.
-
-> 🌬🎏 [Maybe it isn't](https://prjctimg.me/garden/2025-01) - Dec 24, 2025
->
-> Maybe the value of life was never meant to be quantified.
-
-> 🌬🎏 [Take what's freely given](https://prjctimg.me/garden/2026-08) - 08 Feb, 2025
->
-> Discontent becomes more seldom when we learn to take what's freely given.
+> Maybe it isn't
 
 
 
