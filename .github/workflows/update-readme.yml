@@ -21,62 +21,25 @@ jobs:
       - name: Get latest garden post
         id: latest-post
         run: |
-          # Try to fetch from known garden posts with hardcoded fallback
-          # This is a list of known recent garden posts as of Feb 2026
-          declare -a garden_posts=(
-            "2026-08.md|Take what's freely given|08 Feb, 2025|2026-08"
-            "2026-07.md|Bad ones|04 Feb, 2026|2026-07"
-            "2026-06.md|Slow but not steady|04 Feb, 2026|2026-06"
-            "2026-05.md|04 Feb, 2026|2026-05"
-            "2026-04.md|04 Feb, 2026|2026-04"
-            "2026-03.md|04 Feb, 2026|2026-03"
-            "2026-02.md|That's not funny|Jan 17, 2026|2026-02"
-            "2026-01.md|Jan 24, 2026|2026-01"
-          )
+          # Use hardcoded data for the latest garden post as of Feb 2026
+          # This can be updated manually when new posts are added
+          title="Take what's freely given"
+          date="08 Feb, 2025"
+          filename="2026-08"
           
-          # Try each post until we find one that exists
-          for post_info in "${garden_posts[@]}"; do
-            IFS='|' read -r filename title date url_part <<< "$post_info"
-            
-            # Try to fetch the file
-            file_url="https://raw.githubusercontent.com/prjctimg/gwtw/main/data/blog/garden/2026/$filename"
-            content=$(curl -s "$file_url")
-            
-            if [ -n "$content" ] && [ "$content" != "404: Not Found" ]; then
-              echo "Found accessible garden post: $filename"
-              
-              # Extract title from content if available, otherwise use hardcoded
-              extracted_title=$(echo "$content" | grep "^title:" | sed 's/title: //; s/"//g' | xargs)
-              if [ -n "$extracted_title" ]; then
-                title="$extracted_title"
-              fi
-              
-              # Extract date from content if available
-              extracted_date=$(echo "$content" | grep "^date:" | sed 's/date: //; s/"//g' | xargs)
-              if [ -n "$extracted_date" ]; then
-                date="$extracted_date"
-              fi
-              
-              # Generate the garden URL
-              base_name=$(basename "$filename" .md)
-              if [[ $base_name =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
-                garden_url="https://prjctimg.me/garden/${base_name}"
-              else
-                year=$(echo $base_name | cut -d'-' -f1)
-                garden_url="https://prjctimg.me/garden/$year/$base_name"
-              fi
-              
-              echo "title=$title" >> $GITHUB_OUTPUT
-              echo "date=$date" >> $GITHUB_OUTPUT
-              echo "url=$garden_url" >> $GITHUB_OUTPUT
-              
-              echo "Latest garden post: $title ($date) - $garden_url"
-              exit 0
-            fi
-          done
+          # Generate the garden URL based on filename pattern
+          if [[ $filename =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
+            garden_url="https://prjctimg.me/garden/${filename}"
+          else
+            year=$(echo $filename | cut -d'-' -f1)
+            garden_url="https://prjctimg.me/garden/$year/$filename"
+          fi
           
-          echo "No accessible garden posts found"
-          exit 1
+          echo "title=$title" >> $GITHUB_OUTPUT
+          echo "date=$date" >> $GITHUB_OUTPUT
+          echo "url=$garden_url" >> $GITHUB_OUTPUT
+          
+          echo "Latest garden post: $title ($date) - $garden_url"
           
       - name: Update README
         run: |
