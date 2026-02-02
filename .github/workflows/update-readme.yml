@@ -31,7 +31,7 @@ jobs:
           date="Dec 24, 2025"
           filename="2025-01"
           content="Maybe the value of life was never meant to be quantified."
-          garden_url="https://prjctimg.me/garden/${filename}"
+          garden_url="https://garden.prjctimg.me/garden/${filename}"
           
           echo "title=$title" >> $GITHUB_OUTPUT
           echo "date=$date" >> $GITHUB_OUTPUT
