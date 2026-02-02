@@ -24,60 +24,21 @@ jobs:
       - name: Get latest garden post
         id: latest-post
         run: |
-          # Find the latest published garden post (excluding scheduled posts with future due dates)
-          # Using manually maintained list of published posts
+          # For now, use the latest known published garden post
+          # This is "Maybe it isn't" from Dec 24, 2025 (latest published post)
           
-          # List of known published garden posts (update this when new posts are published)
-          declare -a published_posts=(
-            "2025-01.md|Maybe it isn't|Dec 24, 2025|Maybe the value of life was never meant to be quantified."
-            "2025-02.md|Motivated to be disciplined|Dec 01, 2025|Mastery takes years of persistence. But how can you be persistent if you're not motivated to be disciplined?"
-          )
+          title="Maybe it isn't"
+          date="Dec 24, 2025"
+          filename="2025-01"
+          content="Maybe the value of life was never meant to be quantified."
+          garden_url="https://prjctimg.me/garden/${filename}"
           
-          latest_date=0
-          latest_title=""
-          latest_content=""
-          latest_filename=""
-          
-          # Process each published post
-          for post_info in "${published_posts[@]}"; do
-            IFS='|' read -r filename title content <<< "$post_info"
-            
-            # Extract date from title string (format like "Dec 24, 2025")
-            date_str=$(echo "$title" | grep -o '[A-Za-z]* [0-9]*, [0-9]*' || echo "")
-            
-            # Parse date
-            if [ -n "$date_str" ]; then
-              post_epoch=$(date -d "$date_str" +%s 2>/dev/null || echo 0)
-            else
-              post_epoch=0
-            fi
-            
-            # Update if this is more recent
-            if [ "$post_epoch" -gt "$latest_date" ]; then
-              latest_date=$post_epoch
-              latest_title="$title"
-              latest_content="$content"
-              latest_filename="$filename"
-            fi
-          done
-          
-          # Generate URL based on filename pattern
-          if [[ "$latest_filename" =~ ^[0-9]{4}-[0-9]{2}$ ]]; then
-            garden_url="https://prjctimg.me/garden/${latest_filename}"
-          else
-            year=$(echo "$latest_filename" | cut -d'-' -f1)
-            garden_url="https://prjctimg.me/garden/$year/$latest_filename"
-          fi
-          
-          # Format date for display
-          display_date=$(date -d "@$latest_date" "+%b %d, %Y")
-          
-          echo "title=$latest_title" >> $GITHUB_OUTPUT
-          echo "date=$display_date" >> $GITHUB_OUTPUT
+          echo "title=$title" >> $GITHUB_OUTPUT
+          echo "date=$date" >> $GITHUB_OUTPUT
           echo "url=$garden_url" >> $GITHUB_OUTPUT
-          echo "content=$latest_content" >> $GITHUB_OUTPUT
+          echo "content=$content" >> $GITHUB_OUTPUT
           
-          echo "Latest published garden post: $latest_title ($display_date) - $garden_url"
+          echo "Latest published garden post: $title ($date) - $garden_url"
           
       - name: Update README
         run: |
