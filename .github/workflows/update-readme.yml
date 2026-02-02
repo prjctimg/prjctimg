@@ -21,33 +21,41 @@ jobs:
       - name: Get latest garden post via GitHub API
         id: latest-post
         run: |
-          # Get the latest commit that touched garden files
-          latest_commit=$(curl -s "https://api.github.com/repos/prjctimg/gwtw/commits?path=data/blog/garden&per_page=1" | jq -r '.[0].sha')
+          # Get directory contents for garden files
+          api_url="https://api.github.com/repos/prjctimg/gwtw/contents/data/blog/garden"
+          response=$(curl -s "$api_url")
           
-          if [ "$latest_commit" = "null" ]; then
-            echo "No garden commits found"
-            exit 1
-          fi
-          
-          # Get the tree for that commit to find changed files
-          tree_url="https://api.github.com/repos/prjctimg/gwtw/git/trees/$latest_commit?recursive=1"
-          garden_files=$(curl -s "$tree_url" | jq -r '.tree[] | select(.path | test("data/blog/garden/.*\\.md$")) | .path')
+          # Get all markdown files from the response
+          garden_files=$(echo "$response" | jq -r '.[] | select(.type=="file" and .name | endswith(".md")) | .name' | sort -r)
           
           if [ -z "$garden_files" ]; then
             echo "No garden files found"
             exit 1
           fi
           
-          # Get the first (most recent) garden file
+          # Get the latest file (alphabetically last, which should be most recent)
           latest_file=$(echo "$garden_files" | head -1)
+          latest_path=$(echo "$response" | jq -r ".[] | select(.name==\"$latest_file\") | .path")
           
           # Fetch the file content
-          file_url="https://raw.githubusercontent.com/prjctimg/gwtw/main/$latest_file"
+          file_url="https://raw.githubusercontent.com/prjctimg/gwtw/main/$latest_path"
           content=$(curl -s "$file_url")
           
           # Extract title and date from content
           title=$(echo "$content" | grep "^title:" | sed 's/title: //; s/"//g' | xargs)
           date=$(echo "$content" | grep "^date:" | sed 's/date: //; s/"//g' | xargs)
+          
+          # Check if it's a garden post
+          kind=$(echo "$content" | grep "^kind:" | sed 's/kind: //; s/"//g' | xargs)
+          if [ "$kind" != "garden" ]; then
+            echo "File $latest_file is not a garden post, trying next one"
+            latest_file=$(echo "$garden_files" | sed -n '2p')
+            latest_path="data/blog/garden/$latest_file"
+            file_url="https://raw.githubusercontent.com/prjctimg/gwtw/main/$latest_path"
+            content=$(curl -s "$file_url")
+            title=$(echo "$content" | grep "^title:" | sed 's/title: //; s/"//g' | xargs)
+            date=$(echo "$content" | grep "^date:" | sed 's/date: //; s/"//g' | xargs)
+          fi
           
           # Extract filename for URL
           filename=$(basename "$latest_file" .md)
