@@ -50,34 +50,24 @@ jobs:
           DATE="${{ steps.latest-post.outputs.date }}"
           URL="${{ steps.latest-post.outputs.url }}"
           
-          echo "> \[!IMPORTANT\]" > garden_section.txt
+          # Create the garden post section
+          echo "> [!IMPORTANT]" > garden_section.txt
           echo "> **Latest Garden Post:** [$TITLE]($URL) - $DATE" >> garden_section.txt
+          echo "" >> garden_section.txt
           
+          # Update README by replacing or adding section
           if grep -q '\[!IMPORTANT\]' README.md; then
-            awk '
-              BEGIN { skip=0 }
-              /> \[!IMPORTANT\]/ { 
-                while ((getline line < "garden_section.txt") > 0) print line
-                close("garden_section.txt")
-                skip=1
-                next
-              }
-              skip && /^[^>]/ { 
-                skip=0
-              }
-              !skip { print }
-            ' README.md > README_new.md && mv README_new.md README.md
+            # Find and replace the existing section
+            sed -i '/> \[!IMPORTANT\]/,/^[^>]/{
+                /> \[!IMPORTANT\]/{
+                    r garden_section.txt
+                    d
+                }
+                /^$/d
+            }' README.md
           else
-            awk '
-              NR==1 { print }
-              NR==2 { 
-                print ""
-                while ((getline line < "garden_section.txt") > 0) print line
-                close("garden_section.txt")
-                print ""
-              }
-              NR>2 { print }
-            ' README.md > README_new.md && mv README_new.md README.md
+            # Add new section after the title
+            sed -i "2r garden_section.txt" README.md
           fi
           
           echo "README updated with latest garden post"
