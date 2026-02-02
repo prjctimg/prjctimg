@@ -24,13 +24,9 @@ jobs:
       - name: Get latest garden post
         id: latest-post
         run: |
-          # For now, use the latest known published garden post
-          # This is "Maybe it isn't" from Dec 24, 2025 (latest published post)
-          
           title="Maybe it isn't"
           date="Dec 24, 2025"
           filename="2025-01"
-          content="Maybe the value of life was never meant to be quantified."
           garden_url="https://garden.prjctimg.me/garden/${filename}"
           
           echo "title=$title" >> $GITHUB_OUTPUT
@@ -45,18 +41,16 @@ jobs:
           DATE="${{ steps.latest-post.outputs.date }}"
           URL="${{ steps.latest-post.outputs.url }}"
           
-          # Create garden post section with emojis (title only, no content)
+          # Create garden post section with emojis
           echo "> [!IMPORTANT]" > garden_section.txt
           echo "> 🌬🎏 [$TITLE]($URL) - $DATE" >> garden_section.txt
           echo "" >> garden_section.txt
           
           # Update README by replacing or adding section
           if grep -q '\[!IMPORTANT\]' README.md; then
-            # Remove everything after the garden section and add new section
-            awk 'BEGIN{print=1}/\[!IMPORTANT\]/{print=0}print' README.md > temp_readme.md
-            cat temp_readme.md > README.md
-            cat garden_section.txt >> README.md
-            rm temp_readme.md
+            # Remove existing section and add new one
+            sed -i '/> \[!IMPORTANT\]/,/^$/d' README.md
+            sed -i "2r garden_section.txt" README.md
           else
             # Add new section after the title
             sed -i "2r garden_section.txt" README.md
