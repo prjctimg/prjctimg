@@ -52,9 +52,11 @@ jobs:
           
           # Update README by replacing or adding section
           if grep -q '\[!IMPORTANT\]' README.md; then
-            # Remove the entire existing section and add new one
-            sed -i '/> \[!IMPORTANT\]/,/^$/d' README.md
-            sed -i "2r garden_section.txt" README.md
+            # Remove everything after the garden section and add new section
+            awk 'BEGIN{print=1}/\[!IMPORTANT\]/{print=0}print' README.md > temp_readme.md
+            cat temp_readme.md > README.md
+            cat garden_section.txt >> README.md
+            rm temp_readme.md
           else
             # Add new section after the title
             sed -i "2r garden_section.txt" README.md
