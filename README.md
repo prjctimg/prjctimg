@@ -4,7 +4,7 @@
 > >
 > > >
 > > >
-> > > You will find my interests scattered across the  web as "facets", each being a tribute to a passion. [This](https://github.com/prjctimg) is the one account to rule them all.
+> > > You'll find my interests scattered across the  web as "facets", each being a tribute to a passion. [This](https://github.com/prjctimg) is the one account to rule them all.
 > > >
 > > > - Art - [@skchr](https://github.com/skchr/)
 > > > - Prose - [@iseeheaven](https://github.com/iseeheaven/)
