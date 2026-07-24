@@ -15,9 +15,12 @@
 
 <!--RECENTLY:START-->
 ## In case you missed it 🦋
+- Jul 17, 2026 — `[Blog]` [Midterm evaluation - Towards a more offline and accessible experience](https://prjctimg.me/blg/gsoc-week-six)
+- Jun 13, 2026 — `[Blog]` [Setting the app foundations](https://prjctimg.me/blg/gsoc-week-two)
 - Apr 10, 2026 — `[Blog]` [On keeping a garden](https://prjctimg.me/blg/on-keeping-a-garden)
-- Feb 28, 2026 — `[Devlog]` [Untitled](https://prjctimg.me/dvlg/index)
-- Jan 27, 2026 — `[Devlog]` [Daily stoic wisdom in your editor 🌃](https://prjctimg.me/dvlg/index)
+- Feb 28, 2026 — `[Devlog]` [Untitled](https://prjctimg.me/dvlg/p5.nvim/2026-02-28)
+- Jan 27, 2026 — `[Devlog]` [Daily stoic wisdom in your editor 🌃](https://prjctimg.me/dvlg/stoic.nvim/2026-01-27)
+- Jan 05, 2026 — `[Blog]` [On keeping a sketchbook](https://prjctimg.me/blg/on-keeping-a-sketchbook)
 - Apr 01, 2025 — `[Blog]` [Atheists wanted to believe](https://prjctimg.me/blg/atheists-wanted-to-believe)
 <!--RECENTLY:END-->
 
