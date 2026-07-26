@@ -24,7 +24,6 @@
 - Apr 01, 2025 — `[Blog]` [Atheists wanted to believe](https://prjctimg.me/blg/atheists-wanted-to-believe)
 <!--RECENTLY:END-->
 
->
-> All opinions shared via different facets are my own.
+> [`prjctimg`](https://github.com/prjctimg) is the account to rule them all
 >
 > Updated daily from RSS feed
