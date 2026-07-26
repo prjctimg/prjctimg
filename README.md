@@ -1,13 +1,10 @@
-
 > [!IMPORTANT]
 > > ---
 > >
-> > >
-> > >
-> > > You will find my interests scattered across the  web as "facets", each being a tribute to a passion. [This](https://github.com/prjctimg) is the one account to rule them all.
-> > >
-> > > - Art - [@skchr](https://github.com/skchr/)
-> > > - Prose - [@iseeheaven](https://github.com/iseeheaven/)
+> > You will find my interests scattered across the web as "facets", each being a tribute to a passion. [This](https://github.com/prjctimg) is the one account to rule them all.
+> >
+> > - Art - [@skchr](https://github.com/skchr/)
+> > - Prose - [@iseeheaven](https://github.com/iseeheaven/)
 > >
 > > ---
 >
@@ -21,7 +18,6 @@
 - Feb 28, 2026 — `[Devlog]` [Untitled](https://prjctimg.me/dvlg/p5.nvim/2026-02-28)
 - Jan 27, 2026 — `[Devlog]` [Daily stoic wisdom in your editor 🌃](https://prjctimg.me/dvlg/stoic.nvim/2026-01-27)
 - Jan 05, 2026 — `[Blog]` [On keeping a sketchbook](https://prjctimg.me/blg/on-keeping-a-sketchbook)
-- Apr 01, 2025 — `[Blog]` [Atheists wanted to believe](https://prjctimg.me/blg/atheists-wanted-to-believe)
 <!--RECENTLY:END-->
 
 > [`prjctimg`](https://github.com/prjctimg) is the account to rule them all
