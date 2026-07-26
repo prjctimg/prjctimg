@@ -1,10 +1,13 @@
+
 > [!IMPORTANT]
 > > ---
 > >
-> > You will find my interests scattered across the web as "facets", each being a tribute to a passion. [This](https://github.com/prjctimg) is the one account to rule them all.
+> > >
 > >
-> > - Art - [@skchr](https://github.com/skchr/)
-> > - Prose - [@iseeheaven](https://github.com/iseeheaven/)
+> > > You will find my interests scattered across the  web as "facets", each being a tribute to a passion. [This](https://github.com/prjctimg) is the one account to rule them all.
+> > >
+> > > - Art - [@skchr](https://github.com/skchr/)
+> > > - Prose - [@iseeheaven](https://github.com/iseeheaven/)
 > >
 > > ---
 >
@@ -20,3 +23,6 @@
 - Jan 05, 2026 — `[Blog]` [On keeping a sketchbook](https://prjctimg.me/blg/on-keeping-a-sketchbook)
 <!--RECENTLY:END-->
 
+> All opinions shared via different facets are my own.
+>
+> Updated daily from RSS feed
