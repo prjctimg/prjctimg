@@ -20,6 +20,3 @@
 - Jan 05, 2026 — `[Blog]` [On keeping a sketchbook](https://prjctimg.me/blg/on-keeping-a-sketchbook)
 <!--RECENTLY:END-->
 
-> [`prjctimg`](https://github.com/prjctimg) is the account to rule them all
->
-> Updated daily from RSS feed
