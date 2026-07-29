@@ -14,8 +14,12 @@ SENTINEL_END = "<!--RECENTLY:END-->"
 
 
 def fetch_rss(url):
-    with urlopen(url, timeout=15) as response:
-        return response.read()
+    try:
+        with urlopen(url, timeout=15) as response:
+            return response.read()
+    except Exception as e:
+        print(f"Warning: Failed to fetch RSS feed: {e}", file=sys.stderr)
+        return None
 
 
 def parse_rss(xml_data):
@@ -81,6 +85,9 @@ def update_readme(readme_path, new_content):
 
 def main():
     xml_data = fetch_rss(RSS_URL)
+    if xml_data is None:
+        print("ERROR: Could not fetch RSS feed, skipping update.", file=sys.stderr)
+        sys.exit(1)
     items = parse_rss(xml_data)
     posts_md = format_posts(items)
     update_readme(README_PATH, posts_md)
