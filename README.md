@@ -15,6 +15,7 @@
 
 <!--RECENTLY:START-->
 ## In case you missed it 🦋
+- Aug 22, 2026 — `[Blog]` [Final wrap-up - An offline home for learning p5.js](https://prjctimg.me/blg/gsoc-final-wrap-up)
 - Jul 17, 2026 — `[Blog]` [Midterm evaluation - Towards a more offline and accessible experience](https://prjctimg.me/blg/gsoc-week-six)
 - Jun 13, 2026 — `[Blog]` [Setting the app foundations](https://prjctimg.me/blg/gsoc-week-two)
 - Apr 10, 2026 — `[Blog]` [On keeping a garden](https://prjctimg.me/blg/on-keeping-a-garden)
