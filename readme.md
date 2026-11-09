@@ -7,10 +7,10 @@
 >>
 >> ---
 >>
->>> - [`Creative coding 🖌️`](https://skchbk.prjctimg.me) 
->>> - [`Short form writing 🖋️`](https://grdn.prjctimg.me/) 
->>> - [`Blog`](https://prjctimg.me)
->>> - [`Activity`](https://stats.prjctimg.me)
+>>> - [`Sketchbook 🎨`](https://skchbk.prjctimg.me) 
+>>> - [`Garden 🏞️`](https://grdn.prjctimg.me/) 
+>>> - [`Blog 🐦‍⬛`](https://prjctimg.me)
+>>> - [`Activity 🎏`](https://stats.prjctimg.me)
 >>
 >> ---
 >>
@@ -42,5 +42,4 @@
 >> it, creativity being the limit.
 >>
 >> ---
-
 > (c) [prjctimg](https://prjctimg.me). All opinions are my own.
