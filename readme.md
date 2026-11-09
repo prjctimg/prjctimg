@@ -15,14 +15,15 @@
 >>
 >> ### Open source
 >>
->> - [Google Summer of Code (2026) w/ Processing Foundation]() I explored
->>   creative coding by developing [a mobile app for learning p5.js](). I was
->>   also interested in [integrating p5.js deeper with Neovim]() including a
->>   [terminal based workflow for creating sketches to sharing them using GitHub (Gists) API]().
->>   My future interests are integrating with terminal based browsers so that
->>   previewing and running sketches can all be done without leaving the
->>   terminal.
->> - [`craffty`]() - Beautiful apps for modern terminals
+>> #### [`Google Summer of Code (2026) with the Processing Foundation`]()
+>>
+>> I explored creative coding by developing [a mobile app for learning p5.js]().
+>> I was also interested in [integrating p5.js deeper with Neovim]() including a
+>> [terminal based workflow for creating sketches to sharing them using GitHub (Gists) API]().
+>> My future interests are integrating with terminal based browsers so that
+>> previewing and running sketches can all be done without leaving the terminal.
+>>
+>> #### [`craffty.org`]()
 >>
 >> I learnt to program on a Windows machine and was always frustrated how slow
 >> everything ran (it was a dual core) and I couldn't run a dev server andd edit
