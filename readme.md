@@ -45,19 +45,4 @@
 >>
 >> ---
 
-<!--RECENTLY:START-->
-
-## In case you missed it 🦋
-
-- Aug 22, 2026 — `[Blog]`
-  [GSoC'26 final wrap up](https://prjctimg.me/blg/gsoc-final-wrap-up)
-- Jun 13, 2026 — `[Blog]`
-  [Setting the app foundations](https://prjctimg.me/blg/gsoc-week-two)
-- Apr 10, 2026 — `[Blog]`
-  [On keeping a garden](https://prjctimg.me/blg/on-keeping-a-garden)
-- Jan 05, 2026 — `[Blog]`
-  [On keeping a sketchbook](https://prjctimg.me/blg/on-keeping-a-sketchbook)
-
-<!--RECENTLY:END-->
-
 > (c) [prjctimg](https://prjctimg.me). All opinions are my own.
