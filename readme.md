@@ -7,10 +7,8 @@
 >>
 >> ---
 >>
->>> - [`Creative coding 🖌️`](https://skchbk.prjctimg.me) (sketchbook,
->>>   [you can make yours too!](https://github.com/prjctimg/sketchbook))
->>> - [`Short form writing 🖋️`](https://grdn.prjctimg.me/) (digital garden 🏞️,
->>>   [here's the template](https://github.com/prjctimg/garden))
+>>> - [`Creative coding 🖌️`](https://skchbk.prjctimg.me) 
+>>> - [`Short form writing 🖋️`](https://grdn.prjctimg.me/) 
 >>> - [`Blog`](https://prjctimg.me)
 >>> - [`Activity`](https://stats.prjctimg.me)
 >>
