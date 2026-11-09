@@ -5,27 +5,29 @@
 >> so my interests are branched out from creative coding to systems level
 >> programming.
 >>
->>> - [Creative coding](https://skchbk.prjctimg.me) (sketchbook,
+>> ---
+>>
+>>> - [`Creative coding 🖌️`](https://skchbk.prjctimg.me) (sketchbook,
 >>>   [you can make yours too!](https://github.com/prjctimg/sketchbook))
->>> - [Short form writing](https://grdn.prjctimg.me/) (digital garden 🏞️,
+>>> - [`Short form writing 🖋️`](https://grdn.prjctimg.me/) (digital garden 🏞️,
 >>>   [here's the template](https://github.com/prjctimg/garden))
->>> - [Blog](https://prjctimg.me)
->>> - [Activity](https://stats.prjctimg.me)
+>>> - [`Blog`](https://prjctimg.me)
+>>> - [`Activity`](https://stats.prjctimg.me)
 >>
 >> ---
 >>
->> ### Open source
+>> ### `open source 👾`
 >>
->> #### [`Google Summer of Code (2026) with the Processing Foundation`]()
+>> #### [`google summer of code (2026) with the processing foundation  💜`]()
 >>
->> I explored creative coding by developing [a mobile app for learning p5.js]().
->> I was also interested in [integrating p5.js deeper with Neovim]() including a
+>> I am developing [a mobile app for learning p5.js]() and am also interested in
+>> [integrating p5.js deeper with Neovim]() including a
 >> [terminal based workflow for creating sketches to sharing them using GitHub (Gists) API]().
 >>
 >> My future interests are integrating with terminal based browsers so that
 >> previewing and running sketches can all be done without leaving the terminal.
 >>
->> #### [`craffty.org`]()
+>> #### [`craffty.org ⌨️`]()
 >>
 >> I learnt to program on a Windows machine and was always frustrated how slow
 >> everything ran (it was a dual core) and I couldn't run a dev server andd edit
@@ -40,10 +42,8 @@
 >>
 >> The technology has gotten so good that you can build complex workflows around
 >> it, creativity being the limit.
-
+>>
 >> ---
->
-> ---
 
 <!--RECENTLY:START-->
 
