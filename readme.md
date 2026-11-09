@@ -1,6 +1,6 @@
 > [!IMPORTANT]
 >
->> ## [!NOTE]
+>> [!NOTE]
 >>
 >> Programming has always been a passion for me, I find joy in creating software
 >> that I can use everyday. Finding the right niche is still a work in progress
