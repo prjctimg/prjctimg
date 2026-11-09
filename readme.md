@@ -5,8 +5,6 @@
 >> so my interests are branched out from creative coding to systems level
 >> programming.
 >>
->> 
->>
 >>> - [`Sketchbook 🎨`](https://skchbk.prjctimg.me) 
 >>> - [`Garden 🏞️`](https://grdn.prjctimg.me/) 
 >>> - [`Blog 🐦‍⬛`](https://prjctimg.me)
@@ -28,11 +26,11 @@
 >> #### [`craftty.org ⌨️`](https://craftty.org)
 >>
 >> I learnt to program on a Windows machine and was always frustrated how slow
->> everything ran (it was a dual core) and I couldn't run a dev server andd edit
+>> everything ran (it was a dual core) and I couldn't run a dev server and edit
 >> code at the same time without crashing VSCode.
 >>
->> Ever since then I have relied on terminal apps because they're lighter on
->> resource usage and help squeeze out performance on older hardware, which
+>> Since then, I have relied on terminal apps because they're lighter on
+>> resources and help squeeze out performance on older hardware, which
 >> would have been impossible with a GUI app. I started this project to help
 >> raise awareness that we can save older hardware by relying on terminal apps
 >> wherever possible, it is also this frustration that made me passionate about
