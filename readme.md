@@ -2,16 +2,16 @@
 >
 >> ---
 >>
->>> Programming has always been a passion for me, I find joy in creating
->>> software that I can use everyday. Finding the right niche is still a work in
->>> progress so my interests are branched out from creative coding to systems
->>> level programming.
->>>
+>> ## Programming has always been a passion for me, I find joy in creating software that I can use everyday. Finding the right niche is still a work in progress so my interests are branched out from creative coding to systems level programming.
+>>
 >>> - [Creative coding](https://skchbk.prjctimg.me) (sketchbook,
 >>>   [you can make yours too!](https://github.com/prjctimg/sketchbook))
 >>> - [Short form writing](https://grdn.prjctimg.me/) (digital garden 🏞️,
 >>>   [here's the template](https://github.com/prjctimg/garden))
 >>> - [Blog](https://prjctimg.me)
+>>> - [Activity](https://stats.prjctimg.me)
+>>
+>> ---
 >>
 >> ### Open source
 >>
