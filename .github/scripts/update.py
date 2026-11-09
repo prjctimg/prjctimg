@@ -48,7 +48,7 @@ def format_date(dt):
 
 def format_posts(items):
     items.sort(key=lambda x: x["pub_date"], reverse=True)
-    lines = ["## Recent posts 📰"]
+    lines = ["## `feed 📰`"]
     for item in items[:MAX_POSTS]:
         title = item["title"]
         link = item["link"]

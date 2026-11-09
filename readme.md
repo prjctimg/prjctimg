@@ -60,6 +60,4 @@
 
 <!--RECENTLY:END-->
 
-> All opinions are my own.
->
-> Updated daily from RSS feed
+> (c) [prjctimg](https://prjctimg.me). All opinions are my own.
