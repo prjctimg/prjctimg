@@ -2,12 +2,13 @@
 
 import os
 import re
+import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from urllib.request import urlopen
 
 RSS_URL = "https://prjctimg.me/feed.xml"
-README_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "README.md")
+README_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "readme.md")
 MAX_POSTS = 10
 SENTINEL_START = "<!--RECENTLY:START-->"
 SENTINEL_END = "<!--RECENTLY:END-->"
@@ -43,24 +44,42 @@ def parse_date(rfc2822_str):
 
 
 def format_date(dt):
-    return dt.strftime("%b %d, %Y") if dt else ""
+    return dt.strftime("%a, %d") if dt and dt != datetime.min else ""
 
 
 def format_posts(items):
     items.sort(key=lambda x: x["pub_date"], reverse=True)
     lines = ["## `feed 📰`"]
+    current_year = None
+    current_month = None
     for item in items[:MAX_POSTS]:
         title = item["title"]
         link = item["link"]
-        date = format_date(item["pub_date"])
+        dt = item["pub_date"]
+        if dt and dt != datetime.min:
+            year = dt.strftime("%Y")
+            month = dt.strftime("%B")
+            if year != current_year:
+                lines.append("")
+                lines.append(f"#### {year}")
+                current_year = year
+                current_month = None
+            if month != current_month:
+                lines.append("")
+                lines.append(f"##### {month}")
+                current_month = month
+        date = format_date(dt)
         tag = ""
         display_title = title
         m = re.match(r'^\[(Blog|Devlog)\]\s+(.*)', title)
         if m:
             tag = m.group(1)
             display_title = m.group(2)
-        tag_part = f"`[{tag}]`" if tag else ""
-        lines.append(f"- {date} — {tag_part} [{display_title}]({link})")
+        tag_part = f"`[{tag}]` " if tag else ""
+        if date:
+            lines.append(f"- {date} — {tag_part}[{display_title}]({link})")
+        else:
+            lines.append(f"- {tag_part}[{display_title}]({link})")
     return "\n".join(lines)
 
 

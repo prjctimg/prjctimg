@@ -18,16 +18,16 @@
 >>
 >> ### `open source 👾`
 >>
->> #### [`google summer of code (2026) with the processing foundation  💜`]()
+>> #### [`google summer of code (2026) with the processing foundation  💜`](https://summerofcode.withgoogle.com/programs/2026/projects/wmrV9qBT)
 >>
->> I am developing [a mobile app for learning p5.js]() and am also interested in
->> [integrating p5.js deeper with Neovim]() including a
->> [terminal based workflow for creating sketches to sharing them using GitHub (Gists) API]().
+>> I am developing [a mobile app for learning p5.js](https://github.com/prjctimg/learn-p5) and am also interested in
+>> [integrating p5.js deeper with Neovim](https://github.com/prjctimg/p5.nvim) including a
+>> [terminal based workflow for creating sketches to sharing them using GitHub (Gists) API](https://prjctimg.me/blg/on-keeping-a-sketchbook).
 >>
 >> My future interests are integrating with terminal based browsers so that
 >> previewing and running sketches can all be done without leaving the terminal.
 >>
->> #### [`craffty.org ⌨️`]()
+>> #### [`craftty.org ⌨️`](https://craftty.org)
 >>
 >> I learnt to program on a Windows machine and was always frustrated how slow
 >> everything ran (it was a dual core) and I couldn't run a dev server andd edit
