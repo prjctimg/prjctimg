@@ -1,5 +1,8 @@
+
+
 > [!IMPORTANT]
->
+> 
+> 
 >> Programming has always been a passion for me, I find joy in creating software
 >> that I can use everyday.
 >>
@@ -44,5 +47,6 @@
 >> it, creativity being the limit.
 >>
 >> ---
+>> ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/prjctimg)
 >
 > (c) [prjctimg](https://prjctimg.me). All opinions are my own.
