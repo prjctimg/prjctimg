@@ -47,6 +47,6 @@
 >> it, creativity being the limit.
 >>
 >> ---
->> ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/prjctimg)
+>> 
 >
 > (c) [prjctimg](https://prjctimg.me). All opinions are my own.
