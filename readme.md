@@ -38,7 +38,7 @@
 >> have been impossible with a GUI app. I started this project to help raise
 >> awareness that we can save older hardware by relying on terminal apps
 >> wherever possible, it is also this frustration that made me passionate about
->> terminals and there surrounding technology.
+>> terminals and their surrounding technology.
 >>
 >> The technology has gotten so good that you can build complex workflows around
 >> it, creativity being the limit.
